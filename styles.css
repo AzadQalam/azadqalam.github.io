@@ -1,0 +1,362 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #F0F5F9 0%, #F2F2F2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    direction: rtl;
+    color: #52616B;
+    font-weight: 400;
+}
+
+.container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 40px 20px; /* افزایش فاصله داخلی */
+}
+
+/* استایل‌های جدید برای سربرگ */
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 60px; /* افزایش فاصله پایین */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(201, 214, 223, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(201, 214, 223, 0.5);
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #C9D6DF;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-details h2 {
+    color: #1E2022;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.profile-details p {
+    color: #52616B;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.github-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: rgba(201, 214, 223, 0.3);
+    color: #1E2022;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    font-weight: 400;
+    border: 1px solid rgba(201, 214, 223, 0.5);
+}
+
+.github-link:hover {
+    background: #C9D6DF;
+    color: #1E2022;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(201, 214, 223, 0.4);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 60px; /* افزایش فاصله پایین */
+}
+
+h1 {
+    color: #1E2022;
+    margin-bottom: 20px; /* افزایش فاصله پایین */
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    color: #52616B;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+.filter_buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 60px; /* افزایش فاصله پایین */
+}
+
+.filter_buttons button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px solid #C9D6DF;
+    color: #52616B;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 400;
+    backdrop-filter: blur(5px);
+}
+
+.filter_buttons button:hover {
+    background: #C9D6DF;
+    color: #1E2022;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(201, 214, 223, 0.4);
+}
+
+.filter_buttons button.active {
+    background: #52616B;
+    color: white;
+    border-color: #52616B;
+    font-weight: 600;
+}
+
+.filterable_cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* دو کارت در هر ردیف */
+    gap: 50px; /* افزایش فاصله بین کارت‌ها */
+    margin-bottom: 60px; /* افزایش فاصله پایین */
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(201, 214, 223, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(201, 214, 223, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(82, 97, 107, 0.3);
+}
+
+.card_img {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card_body {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.card_title {
+    font-size: 1.4rem;
+    color: #1E2022;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.card_text {
+    color: #52616B;
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    font-weight: 400;
+}
+
+.card_actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.download-btn {
+    background: linear-gradient(135deg, #52616B 0%, #1E2022 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-grow: 1;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(82, 97, 107, 0.3);
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(82, 97, 107, 0.4);
+    background: linear-gradient(135deg, #47545C 0%, #000000 100%);
+    font-weight: 700;
+}
+
+.download-btn:active {
+    transform: translateY(-1px);
+}
+
+.card_tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.tag {
+    background: rgba(201, 214, 223, 0.3);
+    color: #1E2022;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    border: 1px solid rgba(201, 214, 223, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 400;
+}
+
+.tag:hover {
+    background: #C9D6DF;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(201, 214, 223, 0.4);
+    font-weight: 500;
+}
+
+.tag.active {
+    background: #52616B;
+    color: white;
+    border-color: #52616B;
+    font-weight: 600;
+}
+
+.hide {
+    display: none;
+}
+
+/* Decorative elements */
+.container::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(201, 214, 223, 0.3) 0%, rgba(201, 214, 223, 0) 70%);
+    z-index: -1;
+}
+
+.container::after {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(82, 97, 107, 0.2) 0%, rgba(82, 97, 107, 0) 70%);
+    z-index: -1;
+}
+
+@media (max-width: 1200px) {
+    .filterable_cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px; /* کاهش فاصله در صفحه‌های کوچکتر */
+    }
+}
+
+@media (max-width: 768px) {
+    .filterable_cards {
+        grid-template-columns: 1fr;
+        gap: 30px; /* کاهش فاصله در موبایل */
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+        font-weight: 700;
+    }
+    
+    .profile-header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .profile-info {
+        flex-direction: column;
+    }
+    
+    .card_actions {
+        flex-direction: column;
+    }
+    
+    .download-btn {
+        width: 100%;
+    }
+    
+    .container {
+        padding: 20px 15px; /* کاهش فاصله داخلی در موبایل */
+    }
+    
+    .profile-header, header, .filter_buttons, .filterable_cards {
+        margin-bottom: 40px; /* کاهش فاصله‌ها در موبایل */
+    }
+}
