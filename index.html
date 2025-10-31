@@ -6,7 +6,7 @@
     <title>پیش‌نمایش فونت‌ها</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- لینک فونت IBM Plex Arabic از Google Fonts -->
+    <!-- لینک فونت Rubik از Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -14,19 +14,40 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- مودال نمایش تصویر بزرگ -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-image-container">
+                <img id="modalImage" src="" alt="تصویر بزرگ">
+                <div class="zoom-controls">
+                    <button id="zoomIn" class="zoom-btn">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                    <button id="zoomOut" class="zoom-btn">
+                        <i class="fas fa-search-minus"></i>
+                    </button>
+                    <button id="resetZoom" class="zoom-btn">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <!-- سربرگ جدید با تصویر پروفایل و لینک گیتهاب -->
         <div class="profile-header">
             <div class="profile-info">
                 <div class="profile-image">
-                    <img src="https://avatars.githubusercontent.com/u/241234027?v=4" alt="تصویر پروفایل">
+                    <img src="images/profile.jpg" alt="تصویر پروفایل">
                 </div>
                 <div class="profile-details">
                     <h2>آزاد قلم</h2>
                     <p>توسعه فونت های فارسی آزاد</p>
                 </div>
             </div>
-            <a href="https://github.com/username" class="github-link" target="_blank">
+            <a href="https://github.com/azadqalam" class="github-link" target="_blank">
                 <i class="fab fa-github"></i>
                 مشاهده پروفایل گیتهاب
             </a>
@@ -34,22 +55,25 @@
         
         <header>
             <h1>پیش‌نمایش فونت‌ها</h1>
-            <p class="subtitle">برای ورود به صفحه معرفی هر فونت، روی تصویر آن کلیک کنید. </p>
+            <p class="subtitle">برای بزرگنمایی تصویر هر فونت، روی آن کلیک کنید. </p>
         </header>
         
         <div class="filter_buttons">
             <button class="active" data-name="all">نمایش همه</button>
             <button data-name="سنس">سنس</button>
             <button data-name="نسخ">نسخ</button>
-            <button data-name="مونو اسپیس">مونو اسپیس</button>
             <button data-name="دست نویس">دست نویس</button>
+            <button data-name="مونو اسپیس">مونو اسپیس</button>
         </div>
 
         <div class="filterable_cards">
             <!-- کارت اول -->
             <div class="card" data-tags="سنس">
                 <div class="card_img">
-                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="کتاب و قلم">
+                    <img src="images/font1-thumb.jpg" alt="کتاب و قلم" data-src="images/font1-large.jpg">
+                    <div class="image-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
                 </div>
                 <div class="card_body">
                     <div class="card_header">
@@ -57,10 +81,14 @@
                     </div>
                     <p class="card_text">یک توضیح کوتاه.</p>
                     <div class="card_actions">
-                        <button class="download-btn" data-url="https://example.com/downloads/iran-sans.zip" data-title="فونت ایران سنس">
+                        <button class="download-btn" data-url="https://example.com/downloads/sans.zip" data-title="فونت سنس">
                             <i class="fas fa-download"></i>
                             دانلود مستقیم
                         </button>
+                        <a href="https://example.com/fonts/sans" class="info-btn" target="_blank">
+                            <i class="fas fa-info-circle"></i>
+                            اطلاعات بیشتر
+                        </a>
                     </div>
                     <div class="card_tags">
                         <span class="tag" data-name="سنس">سنس</span>
@@ -68,121 +96,99 @@
                 </div>
             </div>
             
-                        <div class="card" data-tags="نسخ,مونو اسپیس">
+            <!-- کارت دوم -->
+            <div class="card" data-tags="نسخ,مونو اسپیس">
                 <div class="card_img">
-                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="کتاب و قلم">
+                    <img src="images/font2-thumb.jpg" alt="کد نویسی" data-src="images/font2-large.jpg">
+                    <div class="image-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
                 </div>
                 <div class="card_body">
                     <div class="card_header">
-                        <h3 class="card_title">نام فونت</h3>
+                        <h3 class="card_title">عنوان فونت</h3>
                     </div>
-                    <p class="card_text">یک توضیح کوتاه.</p>
+                    <p class="card_text">توضیح کوتاه.</p>
                     <div class="card_actions">
-                        <button class="download-btn" data-url="https://example.com/downloads/iran-sans.zip" data-title="فونت ایران سنس">
+                        <button class="download-btn" data-url="https://example.com/downloads/pars-code.zip" data-title="فونت کد نویسی پارس">
                             <i class="fas fa-download"></i>
                             دانلود مستقیم
                         </button>
+                        <a href="https://example.com/fonts/pars-code" class="info-btn" target="_blank">
+                            <i class="fas fa-info-circle"></i>
+                            اطلاعات بیشتر
+                        </a>
                     </div>
                     <div class="card_tags">
+                        <span class="tag" data-name="مونو اسپیس">مونو اسپیس</span>
                         <span class="tag" data-name="نسخ">نسخ</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- کارت سوم -->
+            <div class="card" data-tags="سنس,مونو اسپیس">
+                <div class="card_img">
+                    <img src="images/font3-thumb.jpg" alt="طراحی فونت" data-src="images/font3-large.jpg">
+                    <div class="image-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="card_body">
+                    <div class="card_header">
+                        <h3 class="card_title">عنوان فونت</h3>
+                    </div>
+                    <p class="card_text">توضیح کوتاه.</p>
+                    <div class="card_actions">
+                        <button class="download-btn" data-url="https://example.com/downloads/fars-mono-font.zip" data-title="فونت فارس مونو">
+                            <i class="fas fa-download"></i>
+                            دانلود مستقیم
+                        </button>
+                        <a href="https://example.com/fonts/fars-mono" class="info-btn" target="_blank">
+                            <i class="fas fa-info-circle"></i>
+                            اطلاعات بیشتر
+                        </a>
+                    </div>
+                    <div class="card_tags">
+                        <span class="tag" data-name="سنس">سنس</span>
                         <span class="tag" data-name="مونو اسپیس">مونو اسپیس</span>
                     </div>
                 </div>
             </div>
+
+            <!-- کارت چهارم -->
+            <div class="card" data-tags="سنس,دست نویس">
+                <div class="card_img">
+                    <img src="images/font4-thumb.jpg" alt="نوشتن فارسی" data-src="images/font4-large.jpg">
+                    <div class="image-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                </div>
+                <div class="card_body">
+                    <div class="card_header">
+                        <h3 class="card_title">عنوان فونت</h3>
+                    </div>
+                    <p class="card_text">توضیح کوتاه درباره فونت.</p>
+                    <div class="card_actions">
+                        <button class="download-btn" data-url="https://example.com/downloads/jadid.zip" data-title="فونت جدید">
+                            <i class="fas fa-download"></i>
+                            دانلود مستقیم
+                        </button>
+                        <a href="https://example.com/fonts/jadid" class="info-btn" target="_blank">
+                            <i class="fas fa-info-circle"></i>
+                            اطلاعات بیشتر
+                        </a>
+                    </div>
+                    <div class="card_tags">
+                        <span class="tag" data-name="سنس">سنس</span>
+                        <span class="tag" data-name="دست نویس">دست نویس</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const filterButtons = document.querySelectorAll(".filter_buttons button");
-            const filterableCards = document.querySelectorAll(".filterable_cards .card");
-            const tags = document.querySelectorAll(".tag");
-            const downloadButtons = document.querySelectorAll(".download-btn");
-
-            // تابع اصلی برای فیلتر کردن کارت‌ها
-            const filterCards = (filterValue) => {
-                // به‌روزرسانی دکمه‌های فیلتر
-                document.querySelector(".active").classList.remove("active");
-                
-                // پیدا کردن دکمه مربوطه و فعال کردن آن
-                const targetButton = Array.from(filterButtons).find(button => 
-                    button.dataset.name === filterValue
-                );
-                if (targetButton) {
-                    targetButton.classList.add("active");
-                }
-                
-                // فیلتر کردن کارت‌ها
-                filterableCards.forEach(card => {
-                    const cardTags = card.dataset.tags.split(',');
-                    
-                    if (filterValue === "all" || cardTags.includes(filterValue)) {
-                        card.classList.remove("hide");
-                    } else {
-                        card.classList.add("hide");
-                    }
-                });
-            };
-
-            // اضافه کردن event listener برای دکمه‌های فیلتر
-            filterButtons.forEach(button => {
-                button.addEventListener("click", (e) => {
-                    filterCards(e.target.dataset.name);
-                });
-            });
-
-            // اضافه کردن event listener برای تگ‌ها
-            tags.forEach(tag => {
-                tag.addEventListener("click", (e) => {
-                    e.stopPropagation(); // جلوگیری از انتشار رویداد
-                    const tagName = e.target.dataset.name;
-                    
-                    // اگر تگ مربوطه از قبل انتخاب نشده باشد
-                    const isTagAlreadyActive = document.querySelector(`.filter_buttons button[data-name="${tagName}"]`).classList.contains("active");
-                    
-                    if (!isTagAlreadyActive) {
-                        filterCards(tagName);
-                    }
-                });
-            });
-
-            // اضافه کردن event listener برای دکمه‌های دانلود
-            downloadButtons.forEach(button => {
-                button.addEventListener("click", function(e) {
-                    e.stopPropagation();
-                    
-                    const fileUrl = this.dataset.url;
-                    const fileTitle = this.dataset.title;
-                    
-                    // شبیه‌سازی فرآیند دانلود
-                    const originalHTML = this.innerHTML;
-                    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> در حال دانلود...';
-                    this.disabled = true;
-                    
-                    // ایجاد لینک دانلود بدون باز کردن تب جدید
-                    const downloadLink = document.createElement('a');
-                    downloadLink.href = fileUrl;
-                    downloadLink.style.display = 'none';
-                    
-                    // اضافه کردن لینک به صفحه و کلیک کردن روی آن
-                    document.body.appendChild(downloadLink);
-                    
-                    setTimeout(() => {
-                        try {
-                            downloadLink.click();
-                        } catch (error) {
-                            // هیچ پیامی نمایش داده نمی‌شود
-                        }
-                        
-                        // حذف لینک از صفحه
-                        document.body.removeChild(downloadLink);
-                        
-                        this.innerHTML = originalHTML;
-                        this.disabled = false;
-                    }, 1000);
-                });
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
