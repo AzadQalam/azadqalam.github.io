@@ -1,184 +1,188 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>گالری تصاویر قابل فیلتر</title>
-	<style>
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-		}
-
-		body {
-			background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-			min-height: 100vh;
-			padding: 20px;
-			direction: rtl;
-		}
-
-		.container {
-			max-width: 1200px;
-			margin: 0 auto;
-			padding: 20px;
-		}
-
-		h1 {
-			text-align: center;
-			color: #2c3e50;
-			margin-bottom: 30px;
-			font-size: 2.5rem;
-		}
-
-		.filter_buttons {
-			display: flex;
-			justify-content: center;
-			flex-wrap: wrap;
-			gap: 15px;
-			margin-bottom: 40px;
-		}
-
-		.filter_buttons button {
-			padding: 12px 24px;
-			font-size: 1rem;
-			background: #fff;
-			border: 2px solid #3498db;
-			color: #3498db;
-			border-radius: 30px;
-			cursor: pointer;
-			transition: all 0.3s ease;
-			font-weight: 600;
-		}
-
-		.filter_buttons button:hover {
-			background: #3498db;
-			color: white;
-			transform: translateY(-3px);
-			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-		}
-
-		.filter_buttons button.active {
-			background: #3498db;
-			color: white;
-		}
-
-		.filterable_cards {
-			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-			gap: 30px;
-		}
-
-		.card {
-			background: white;
-			border-radius: 15px;
-			overflow: hidden;
-			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-			transition: transform 0.3s ease, box-shadow 0.3s ease;
-		}
-
-		.card:hover {
-			transform: translateY(-10px);
-			box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-		}
-
-		.card img {
-			width: 100%;
-			height: 220px;
-			object-fit: cover;
-			display: block;
-		}
-
-		.card_body {
-			padding: 20px;
-		}
-
-		.card_title {
-			font-size: 1.3rem;
-			color: #2c3e50;
-			margin-bottom: 10px;
-			font-weight: 700;
-		}
-
-		.card_text {
-			color: #7f8c8d;
-			line-height: 1.6;
-			font-size: 0.95rem;
-		}
-
-		.hide {
-			display: none;
-		}
-
-		@media (max-width: 768px) {
-			.filterable_cards {
-				grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-			}
-			
-			h1 {
-				font-size: 2rem;
-			}
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پیش‌نمایش فونت‌ها</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- لینک فونت IBM Plex Arabic از Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-	<div class="container">
-		<h1>گالری تصاویر قابل فیلتر</h1>
-		
-		<div class="filter_buttons">
-			<button class="active" data-name="all">نمایش همه</button>
-			<button data-name="phones">گوشی‌ها</button>
-			<button data-name="clothes">لباس‌ها</button>
-			<button data-name="shoes">کفش‌ها</button>
-		</div>
+    <div class="container">
+        <!-- سربرگ جدید با تصویر پروفایل و لینک گیتهاب -->
+        <div class="profile-header">
+            <div class="profile-info">
+                <div class="profile-image">
+                    <img src="https://avatars.githubusercontent.com/u/241234027?v=4" alt="تصویر پروفایل">
+                </div>
+                <div class="profile-details">
+                    <h2>آزاد قلم</h2>
+                    <p>توسعه فونت های فارسی آزاد</p>
+                </div>
+            </div>
+            <a href="https://github.com/username" class="github-link" target="_blank">
+                <i class="fab fa-github"></i>
+                مشاهده پروفایل گیتهاب
+            </a>
+        </div>
+        
+        <header>
+            <h1>پیش‌نمایش فونت‌ها</h1>
+            <p class="subtitle">برای ورود به صفحه معرفی هر فونت، روی تصویر آن کلیک کنید. </p>
+        </header>
+        
+        <div class="filter_buttons">
+            <button class="active" data-name="all">نمایش همه</button>
+            <button data-name="سنس">سنس</button>
+            <button data-name="نسخ">نسخ</button>
+            <button data-name="مونو اسپیس">مونو اسپیس</button>
+            <button data-name="دست نویس">دست نویس</button>
+        </div>
 
-		<div class="filterable_cards">
-			<div class="card" data-name="phones">
-				<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="گوشی موبایل">
-				<div class="card_body">
-					<h6 class="card_title">گوشی هوشمند</h6>
-					<p class="card_text">این یک گوشی هوشمند پیشرفته با قابلیت‌های متعدد است که برای کارهای روزمره شما مناسب می‌باشد.</p>
-				</div>
-			</div>
+        <div class="filterable_cards">
+            <!-- کارت اول -->
+            <div class="card" data-tags="سنس">
+                <div class="card_img">
+                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="کتاب و قلم">
+                </div>
+                <div class="card_body">
+                    <div class="card_header">
+                        <h3 class="card_title">نام فونت</h3>
+                    </div>
+                    <p class="card_text">یک توضیح کوتاه.</p>
+                    <div class="card_actions">
+                        <button class="download-btn" data-url="https://example.com/downloads/iran-sans.zip" data-title="فونت ایران سنس">
+                            <i class="fas fa-download"></i>
+                            دانلود مستقیم
+                        </button>
+                    </div>
+                    <div class="card_tags">
+                        <span class="tag" data-name="سنس">سنس</span>
+                    </div>
+                </div>
+            </div>
+            
+                        <div class="card" data-tags="نسخ,مونو اسپیس">
+                <div class="card_img">
+                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="کتاب و قلم">
+                </div>
+                <div class="card_body">
+                    <div class="card_header">
+                        <h3 class="card_title">نام فونت</h3>
+                    </div>
+                    <p class="card_text">یک توضیح کوتاه.</p>
+                    <div class="card_actions">
+                        <button class="download-btn" data-url="https://example.com/downloads/iran-sans.zip" data-title="فونت ایران سنس">
+                            <i class="fas fa-download"></i>
+                            دانلود مستقیم
+                        </button>
+                    </div>
+                    <div class="card_tags">
+                        <span class="tag" data-name="نسخ">نسخ</span>
+                        <span class="tag" data-name="مونو اسپیس">مونو اسپیس</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-			<div class="card" data-name="clothes">
-				<img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="لباس">
-				<div class="card_body">
-					<h6 class="card_title">لباس مردانه</h6>
-					<p class="card_text">این یک لباس شیک و راحت برای مردان است که در هر موقعیتی می‌توانید از آن استفاده کنید.</p>
-				</div>
-			</div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const filterButtons = document.querySelectorAll(".filter_buttons button");
+            const filterableCards = document.querySelectorAll(".filterable_cards .card");
+            const tags = document.querySelectorAll(".tag");
+            const downloadButtons = document.querySelectorAll(".download-btn");
 
-			<div class="card" data-name="shoes">
-				<img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="کفش">
-				<div class="card_body">
-					<h6 class="card_title">کفش ورزشی</h6>
-					<p class="card_text">این کفش ورزشی با طراحی مدرن و راحت، برای فعالیت‌های روزانه و ورزشی مناسب است.</p>
-				</div>
-			</div>
-		</div>
-	</div>
+            // تابع اصلی برای فیلتر کردن کارت‌ها
+            const filterCards = (filterValue) => {
+                // به‌روزرسانی دکمه‌های فیلتر
+                document.querySelector(".active").classList.remove("active");
+                
+                // پیدا کردن دکمه مربوطه و فعال کردن آن
+                const targetButton = Array.from(filterButtons).find(button => 
+                    button.dataset.name === filterValue
+                );
+                if (targetButton) {
+                    targetButton.classList.add("active");
+                }
+                
+                // فیلتر کردن کارت‌ها
+                filterableCards.forEach(card => {
+                    const cardTags = card.dataset.tags.split(',');
+                    
+                    if (filterValue === "all" || cardTags.includes(filterValue)) {
+                        card.classList.remove("hide");
+                    } else {
+                        card.classList.add("hide");
+                    }
+                });
+            };
 
-	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			const filterButtons = document.querySelectorAll(".filter_buttons button");
-			const filterableCards = document.querySelectorAll(".filterable_cards .card");
+            // اضافه کردن event listener برای دکمه‌های فیلتر
+            filterButtons.forEach(button => {
+                button.addEventListener("click", (e) => {
+                    filterCards(e.target.dataset.name);
+                });
+            });
 
-			const filterCards = (e) => {
-				document.querySelector(".active").classList.remove("active");
-				e.target.classList.add("active");
-				
-				filterableCards.forEach(card => {
-					card.classList.remove("hide");
-					if(card.dataset.name !== e.target.dataset.name && e.target.dataset.name !== "all") {
-						card.classList.add("hide");
-					}
-				});
-			};
+            // اضافه کردن event listener برای تگ‌ها
+            tags.forEach(tag => {
+                tag.addEventListener("click", (e) => {
+                    e.stopPropagation(); // جلوگیری از انتشار رویداد
+                    const tagName = e.target.dataset.name;
+                    
+                    // اگر تگ مربوطه از قبل انتخاب نشده باشد
+                    const isTagAlreadyActive = document.querySelector(`.filter_buttons button[data-name="${tagName}"]`).classList.contains("active");
+                    
+                    if (!isTagAlreadyActive) {
+                        filterCards(tagName);
+                    }
+                });
+            });
 
-			filterButtons.forEach(button => button.addEventListener("click", filterCards));
-		});
-	</script>
+            // اضافه کردن event listener برای دکمه‌های دانلود
+            downloadButtons.forEach(button => {
+                button.addEventListener("click", function(e) {
+                    e.stopPropagation();
+                    
+                    const fileUrl = this.dataset.url;
+                    const fileTitle = this.dataset.title;
+                    
+                    // شبیه‌سازی فرآیند دانلود
+                    const originalHTML = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> در حال دانلود...';
+                    this.disabled = true;
+                    
+                    // ایجاد لینک دانلود بدون باز کردن تب جدید
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = fileUrl;
+                    downloadLink.style.display = 'none';
+                    
+                    // اضافه کردن لینک به صفحه و کلیک کردن روی آن
+                    document.body.appendChild(downloadLink);
+                    
+                    setTimeout(() => {
+                        try {
+                            downloadLink.click();
+                        } catch (error) {
+                            // هیچ پیامی نمایش داده نمی‌شود
+                        }
+                        
+                        // حذف لینک از صفحه
+                        document.body.removeChild(downloadLink);
+                        
+                        this.innerHTML = originalHTML;
+                        this.disabled = false;
+                    }, 1000);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
