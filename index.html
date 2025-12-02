@@ -58,6 +58,85 @@
             <p class="subtitle">برای مشاهده پیش نمایش کامل هر فونت، روی تصویر آن کلیک کنید. </p>
         </header>
         
+        <!-- === Latest font tester (inserted into version-1 page) ===
+             This section is added only — nothing else in ver1 is modified.
+             The sample-input field is kept hidden from the controls column
+             to preserve layout and avoid changing picture posts or top bar. -->
+
+        <!-- Fold toggle (added; tester wrapped below in vfWrapper collapsed by default) -->
+        <div class="test-toggle-container">
+            <button id="vfToggleBtn" class="vf-toggle-btn" aria-expanded="false" aria-controls="vfWrapper">
+                تست آنلاین تمام فونت ها
+            </button>
+        </div>
+
+        <div id="vfWrapper" class="vf-wrapper collapsed">
+        <section class="vf-tester" aria-label="Variable font tester">
+            <div class="vf-controls">
+                <div class="vf-row">
+                    <label class="vf-label">فونت انتخابی</label>
+                    <select id="vfFontSelect" aria-label="انتخاب فونت">
+                        <option value="">در حال بارگذاری...</option>
+                    </select>
+                </div>
+
+                <div class="vf-row">
+                    <label class="vf-label">وزن (wght) <span id="wghtValue">400</span></label>
+                    <input id="wght" type="range" min="100" max="1000" step="1" value="400">
+                </div>
+
+                <div class="vf-row">
+                    <label class="vf-label">اندازه قلم (px) <span id="sizeValue">48</span></label>
+                    <input id="size" type="range" min="12" max="200" step="1" value="48">
+                </div>
+
+                <div class="vf-row">
+                    <label class="vf-label">فاصله سطور (line-height) <span id="lhValue">1.15</span></label>
+                    <input id="lh" type="range" min="0.8" max="2.0" step="0.01" value="1.15">
+                </div>
+
+                <div class="vf-row">
+                    <label class="vf-label">زبان نمونه</label>
+                    <select id="vfLangSelect" aria-label="انتخاب زبان نمونه">
+                        <option value="fa">فارسی</option>
+                        <option value="ar">عربی</option>
+                        <option value="ku">کوردی</option>
+                    </select>
+                </div>
+
+                <div class="vf-row features-row">
+                    <label class="vf-label">OpenType</label>
+                    <div class="feature-item">
+                        <input id="ss01" type="checkbox">
+                        <label for="ss01">ss01</label>
+                        <span class="feature-desc">turn all numbers to persian</span>
+                    </div>
+                    <div class="feature-item">
+                        <input id="tnum" type="checkbox">
+                        <label for="tnum">tnum</label>
+                        <span class="feature-desc">tabular numbers</span>
+                    </div>
+                </div>
+
+                <div class="vf-row full" style="display:none;">
+                    <!-- kept in DOM but hidden so properties column layout remains compact -->
+                    <label class="vf-label">متن نمونه</label>
+                    <textarea id="sampleInput" rows="3">نمونه متن فارسی — سریع‌ترین روباه قهوه‌ای از روی سگ تنبل پرید. The quick brown fox jumps over the lazy dog.</textarea>
+                </div>
+            </div>
+
+            <div class="vf-preview">
+                <div class="vf-preview-box">
+                    <div id="vfSample" class="vf-sample" contenteditable="true" aria-label="نمونه متن">نمونه متن فارسی — سریع‌ترین روباه قهوه‌ای از روی سگ تنبل پرید. The quick brown fox jumps over the lazy dog.</div>
+                </div>
+                <div class="vf-helpers">
+                    <button id="resetVf" class="info-btn">بازنشانی پارامترها</button>
+                </div>
+            </div>
+        </section>
+        </div>
+        <!-- === end font tester === -->
+
         <div class="filter_buttons">
             <button class="active" data-name="all">نمایش همه</button>
             <button data-name="سنس">سنس</button>
@@ -96,7 +175,6 @@
                 </div>
             </div>
             
-
         </div>
     </div>
 

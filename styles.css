@@ -110,6 +110,7 @@ h1 {
     font-weight: 300;
 }
 
+/* filter buttons */
 .filter_buttons {
     display: flex;
     justify-content: center;
@@ -145,6 +146,7 @@ h1 {
     font-weight: 600;
 }
 
+/* cards grid */
 .filterable_cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* سه کارت در هر ردیف */
@@ -454,90 +456,149 @@ h1 {
     transform: scale(1.1);
 }
 
-/* Decorative elements */
-.container::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(201, 214, 223, 0.3) 0%, rgba(201, 214, 223, 0) 70%);
-    z-index: -1;
+/* === Variable font tester styles appended to ver1 CSS === */
+
+/* Toggle button */
+.test-toggle-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+.vf-toggle-btn {
+    background: linear-gradient(135deg,#52616B,#1E2022);
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 26px;
+    font-size: 0.98rem;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(82,97,107,0.12);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.vf-toggle-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(82,97,107,0.16); }
+
+/* Collapsible wrapper */
+.vf-wrapper {
+    overflow: hidden;
+    transition: max-height 420ms cubic-bezier(.2,.9,.2,1), opacity 240ms ease;
+    max-height: 2000px; /* expanded maximum */
+    opacity: 1;
+}
+.vf-wrapper.collapsed {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
 }
 
-.container::after {
-    content: "";
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(82, 97, 107, 0.2) 0%, rgba(82, 97, 107, 0) 70%);
-    z-index: -1;
+.vf-tester {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin: 30px 0 50px 0;
+    padding: 18px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 10px;
+    border: 1px solid rgba(201,214,223,0.5);
 }
 
+.vf-controls {
+    width: 420px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.vf-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.95rem;
+    color: #425056;
+}
+
+.vf-label {
+    font-weight: 700; /* make feature titles bolder (per request) */
+}
+
+.features-row .feature-desc {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin-right: 8px;
+}
+
+.vf-row input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    background: linear-gradient(90deg,#C9D6DF,#95A6B5);
+    border-radius: 6px;
+    outline: none;
+}
+.vf-row input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #1E2022;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+.vf-row select, .vf-row input[type="checkbox"], .vf-row textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(201,214,223,0.6);
+    background: #fff;
+}
+
+/* preview: make box match available height and top-align text */
+.vf-preview {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.vf-preview-box {
+    flex: 1;
+    background: linear-gradient(180deg, #ffffff, #fbfdff);
+    border-radius: 10px;
+    border: 1px solid rgba(201,214,223,0.6);
+    padding: 18px;
+    display: flex;
+    align-items: flex-start; /* top aligned content */
+    justify-content: center;
+    min-height: 260px; /* constant height similar to preview area */
+}
+
+.vf-sample {
+    width: 100%;
+    height: 100%;
+    text-align: right; /* force right alignment as requested */
+    outline: none;
+    font-family: 'Rubik', sans-serif;
+    color: #1E2022;
+    line-height: 1.15;
+    padding-top: 12px; /* margin from top */
+}
+
+/* helpers */
+.vf-helpers {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+/* responsiveness tweaks for tester area */
 @media (max-width: 1200px) {
-    .filterable_cards {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 35px;
-    }
+    .vf-tester { flex-direction: column; }
+    .filterable_cards { grid-template-columns: repeat(2, 1fr); gap: 35px; }
 }
 
 @media (max-width: 768px) {
-    .filterable_cards {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    h1 {
-        font-size: 2.2rem;
-        font-weight: 700;
-    }
-    
-    .profile-header {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
-    
-    .profile-info {
-        flex-direction: column;
-    }
-    
-    .card_actions {
-        flex-direction: column;
-    }
-    
-    .download-btn, .info-btn {
-        width: 100%;
-    }
-    
-    .container {
-        padding: 20px 15px;
-    }
-    
-    .profile-header, header, .filter_buttons, .filterable_cards {
-        margin-bottom: 40px;
-    }
-    
-    .modal-content {
-        width: 95%;
-        height: 80vh;
-    }
-    
-    .zoom-controls {
-        bottom: 10px;
-    }
-    
-    .zoom-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-    }
-    
-    .tag {
-        padding: 7px 14px;
-        font-size: 0.9rem;
-    }
+    .filterable_cards { grid-template-columns: 1fr; gap: 30px; }
+    .profile-header { flex-direction: column; gap: 20px; text-align: center; }
+    .vf-controls { width: 100%; }
+    .vf-preview-box { min-height: 220px; padding: 14px; }
 }
