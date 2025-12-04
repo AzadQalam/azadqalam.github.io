@@ -187,17 +187,17 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     const sampleTexts = {
-        fa: 'نمونه متن فارسی — سریع‌ترین روباه قهوه‌ای از روی سگ تنبل پرید. The quick brown fox jumps over the lazy dog.',
-        ar: 'نص تجريبي عربي — أسرع ثعلب بني قفز فوق الكلب الكسول. The quick brown fox jumps over the lazy dog.',
-        ku: 'نمونەی دەقی کوردی — خێرترین فاکسێ قووەیی لەسەر سەگێکی هەمەجۆر پێت. The quick brown fox jumps over the lazy dog.'
+        fa: 'فاصلهٔ بین خط کرسی هر سطر تا خط کرسی سطر بعدی در هر متن را فاصلهٔ بین سطر یا پایه حروف می‌گویند. دلیل آن که کلمهٔ متن را بکار می‌بریم این است که مقدار این فاصله را می‌توان هنگام حروف‌چینی متن متناسب با نوع قلم آن تغییر داد. این فاصله نقش مهمی را هنگام خواندن ایفا می‌کند.\nاعداد: ۰۱۲۳۴۵۶۷۸۹',
+        ar: 'المسافة بين خط الأساس لكل سطر وخط الأساس للسطر التالي في أي نص﻿ تُسمى مسافة السطر أو المسافة الأساسية للحروف﻿. والسبب في استخدامنا كلمة نص﻿ هو أنه يمكن تعديل مقدار هذه المسافة أثناء تنضيد النص حسب نوع الخط. تلعب هذه المسافة دورًا مهمًا أثناء القراءة.\nالأرقام: ٠١٢٣٤٥٦٧٨٩',
+        ku: 'دووری نێوان خەت کرسی هەموو ڕیزێک و خەت کرسی ڕیزە داهاتوو لە هەر دەقێکدا﻿ دووری نێوان ڕیزە یان بەیدە هەروەها ناونراوە﻿. هۆکاری بەکارهێنانی وشەی دەق﻿ ئەوەیە کە مەقداری ئەم دووریا دەکرێت لەکاتی نوسینەوەی مەکۆ﻿ پێشنیار بکرێت بە پەیوەندی گۆڕینی فۆنت. ئەم دووریە شاندێکی گرنگ دەکات کاتێک دەتوانرێت خوێندراو.\nژمارەکان: ٠١٢٣٤٥٦٧٨٩',
+        en: 'The distance between the baseline of each line and the baseline of the next line in any text is called the line spacing or leading. The reason we use the word "text" is that the amount of this spacing can be adjusted during typesetting according to the font type. This spacing plays an important role in reading.\nDigits: 0123456789'
     };
 
     // jsDelivr-hosted fonts JSON (sample repo). Update to actual path if needed.
     const fontsJsonUrl = 'https://cdn.jsdelivr.net/gh/AzadQalam/sample-fonts@main/fonts.json';
 
     const fallbackFonts = [
-        { name: 'Roboto Flex', family: 'Roboto Flex', css: 'https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap' },
-        { name: 'Rubik', family: 'Rubik', css: 'https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap' }
+        { name: 'AQNormalSans-VF', family: 'AQNormalSans-VF', css: '' } // No CSS needed as it's loaded via @font-face
     ];
 
     function ensureCssLoaded(href) {
@@ -244,7 +244,7 @@ document.addEventListener("DOMContentLoaded", function() {
             vf.fontSelect.appendChild(opt);
         });
 
-        const prefer = 'Roboto Flex';
+        const prefer = 'AQNormalSans-VF';
         const preferredOption = Array.from(vf.fontSelect.options).find(o => o.value === prefer);
         if (preferredOption) vf.fontSelect.value = prefer;
         else if (vf.fontSelect.options.length) vf.fontSelect.selectedIndex = 0;
@@ -257,11 +257,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const applyVfSettings = () => {
         const chosenFont = vf.fontSelect.value;
-        vf.sample.style.fontFamily = chosenFont ? `'${chosenFont}', 'Rubik', sans-serif` : "'Rubik', sans-serif";
+        vf.sample.style.fontFamily = chosenFont ? `'${chosenFont}', sans-serif` : "'AQNormalSans-VF', sans-serif";
 
-        const wght = parseFloat(vf.wght.value || 400);
-        const size = parseFloat(vf.size.value || 48);
-        const lh = parseFloat(vf.lh.value || 1.15);
+        const wght = parseFloat(vf.wght.value || 100);
+        const size = parseFloat(vf.size.value || 18);
+        const lh = parseFloat(vf.lh.value || 1.5);
 
         vf.wghtValue.textContent = Math.round(wght);
         vf.sizeValue.textContent = Math.round(size);
@@ -321,13 +321,13 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     vf.resetBtn.addEventListener('click', function() {
-        vf.wght.value = 400;
-        vf.size.value = 48;
-        vf.lh.value = 1.15;
+        vf.wght.value = 100;
+        vf.size.value = 18;
+        vf.lh.value = 1.5;
         vf.ss01.checked = false;
         vf.tnum.checked = false;
-        const prefer = Array.from(vf.fontSelect.options).find(o => o.value === 'Roboto Flex');
-        if (prefer) vf.fontSelect.value = 'Roboto Flex';
+        const prefer = Array.from(vf.fontSelect.options).find(o => o.value === 'AQNormalSans-VF');
+        if (prefer) vf.fontSelect.value = 'AQNormalSans-VF';
         else if (vf.fontSelect.options.length) vf.fontSelect.selectedIndex = 0;
         vf.langSelect.value = 'fa';
         vf.sampleInput.value = sampleTexts['fa'];

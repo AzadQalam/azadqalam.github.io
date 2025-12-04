@@ -6,10 +6,20 @@
     <title>پیش‌نمایش فونت‌ها</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="shortcut icon" type="image/png" href="images/profile.svg">
-    <!-- لینک فونت Rubik از Google Fonts -->
+    
+    <!-- AQNormalSans Variable Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'AQNormalSans-VF';
+            src: url('https://raw.githubusercontent.com/AzadQalam/normal-sans/main/Variable/AQNormalSans-VF.woff2') format('woff2-variations');
+            font-weight: 100 1000;
+            font-stretch: 75% 125%;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
     
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -82,18 +92,18 @@
                 </div>
 
                 <div class="vf-row">
-                    <label class="vf-label">وزن (wght) <span id="wghtValue">400</span></label>
-                    <input id="wght" type="range" min="100" max="1000" step="1" value="400">
+                    <label class="vf-label">وزن (wght) <span id="wghtValue">100</span></label>
+                    <input id="wght" type="range" min="100" max="1000" step="1" value="100">
                 </div>
 
                 <div class="vf-row">
-                    <label class="vf-label">اندازه قلم (px) <span id="sizeValue">48</span></label>
-                    <input id="size" type="range" min="12" max="200" step="1" value="48">
+                    <label class="vf-label">اندازه قلم (px) <span id="sizeValue">18</span></label>
+                    <input id="size" type="range" min="12" max="200" step="1" value="18">
                 </div>
 
                 <div class="vf-row">
-                    <label class="vf-label">فاصله خطوط (line-height) <span id="lhValue">1.15</span></label>
-                    <input id="lh" type="range" min="0.8" max="2.0" step="0.01" value="1.15">
+                    <label class="vf-label">فاصله خطوط (line-height) <span id="lhValue">1.5</span></label>
+                    <input id="lh" type="range" min="0.8" max="2.0" step="0.01" value="1.5">
                 </div>
 
                 <div class="vf-row">
@@ -102,6 +112,7 @@
                         <option value="fa">فارسی</option>
                         <option value="ar">عربی</option>
                         <option value="ku">کوردی</option>
+                        <option value="en">انگلیسی</option>
                     </select>
                 </div>
 
@@ -122,13 +133,15 @@
                 <div class="vf-row full" style="display:none;">
                     <!-- kept in DOM but hidden so properties column layout remains compact -->
                     <label class="vf-label">متن نمونه</label>
-                    <textarea id="sampleInput" rows="3">نمونه متن فارسی — سریع‌ترین روباه قهوه‌ای از روی سگ تنبل پرید. The quick brown fox jumps over the lazy dog.</textarea>
+                    <textarea id="sampleInput" rows="3">فاصلهٔ بین خط کرسی هر سطر تا خط کرسی سطر بعدی در هر متن را فاصلهٔ بین سطر یا پایه حروف می‌گویند. دلیل آن که کلمهٔ متن را بکار می‌بریم این است که مقدار این فاصله را می‌توان هنگام حروف‌چینی متن متناسب با نوع قلم آن تغییر داد. این فاصله نقش مهمی را هنگام خواندن ایفا می‌کند.
+اعداد: ۰۱۲۳۴۵۶۷۸۹</textarea>
                 </div>
             </div>
 
             <div class="vf-preview">
                 <div class="vf-preview-box">
-                    <div id="vfSample" class="vf-sample" contenteditable="true" aria-label="نمونه متن">نمونه متن فارسی — سریع‌ترین روباه قهوه‌ای از روی سگ تنبل پرید. The quick brown fox jumps over the lazy dog.</div>
+                    <div id="vfSample" class="vf-sample" contenteditable="true" aria-label="نمونه متن">فاصلهٔ بین خط کرسی هر سطر تا خط کرسی سطر بعدی در هر متن را فاصلهٔ بین سطر یا پایه حروف می‌گویند. دلیل آن که کلمهٔ متن را بکار می‌بریم این است که مقدار این فاصله را می‌توان هنگام حروف‌چینی متن متناسب با نوع قلم آن تغییر داد. این فاصله نقش مهمی را هنگام خواندن ایفا می‌کند.
+اعداد: ۰۱۲۳۴۵۶۷۸۹</div>
                 </div>
                 <div class="vf-helpers">
                     <button id="resetVf" class="info-btn">بازنشانی پارامترها</button>
